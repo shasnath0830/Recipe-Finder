@@ -60,7 +60,6 @@ class RecipeRatingView(APIView):
         if not rating:
             return Response({'error': 'Rating not provided'}, status=status.HTTP_400_BAD_REQUEST)
         
-        # Assuming your Recipe model has a field 'rating'
         recipe.rating = rating
         recipe.save()
 
