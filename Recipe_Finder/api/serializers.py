@@ -10,10 +10,10 @@ class RecipeSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'description', 'ingredients', 'instructions', 'image', 'reviews']
 
 class FavoriteSerializer(serializers.ModelSerializer):
-    recipe = RecipeSerializer(read_only=True)  # Use RecipeSerializer for GET requests
+    recipe = RecipeSerializer(read_only=True)  # RecipeSerializer for GET requests
     recipe_id = serializers.PrimaryKeyRelatedField(
         queryset=Recipe.objects.all(), write_only=True, source='recipe'
-    )  # Accept only recipe_id for POST requests
+    )  # recipe_id for POST requests
 
     class Meta:
         model = Favorite
